@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+  <div class="ml-4 w-25 p-3" >
+    <form class="form-signin" action="/" method = "POST"
+
+      <h1 class="h3 mb-4 font-weight-normal">Login Here to manage your rooms</h1>
+      <label for="inputEmail" class="mt-5 sr-only">Session Name</label>
+      <input class="mb-1 mt-2 form-control" placeholder="Name of waiting room" name="name">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+       <div class="checkbox mb-3">
+     
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+
+    </form>
+  </div>
+
+  {% if wrongpassword == True %}
+<div class="ml-4 w-50 p-3 alert alert-danger">
+  <strong>Error!</strong> Wrong name or password!
+</div>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if join == True %}
+
+<div class="ml-4 mt-4 card w-75">
+  <div class="card-body">
+    <h5 class="card-title">Waiting Number : {{ number }} </h5>
+    <p class="card-text">Reservation for: {{session.get_quantity(number) }} people. Please wait to be Seated.</p>
+    <!-- <form action="{{url_for('cancel_booking',cancel=True,number=number)}}" method="POST"> -->
+    <!-- <button type="submit" class="btn btn-primary">Cancel</button> -->
+	<!-- </form> -->
+  </div>
+</div>
+{% else %}
+<div id="centered" class="w-25 p-3 ml-4">
+<div class="d-flex justify-content-start" style="margin: 30px Auto; ">
+<form class="form-signin" action="{{ url_for('join_session')}}" method="POST">
+  <div class="form-group" >
+     <h1 style="width:500px;" class="h3 mb-3 font-weight-normal">Name</h1>
+    <input type="name" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name of Waiting room">
+  </div>
+
+  <div class="form-group" >
+     <h1 style="width:500px;" class="h3 mb-3 font-weight-normal">Reservation for</h1>
+    <input type="name" class="form-control" name="qty" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="How many people">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div>
+{% endif %}
+{% if number == False %}
+<div class="ml-4 w-50 p-3 alert alert-danger">
+  <strong>Error!</strong> Waiting room not found.
+</div>
+{% endif %}
+{% endblock content %}
+

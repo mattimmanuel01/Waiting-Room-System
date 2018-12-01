@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<ul class="list-unstyled">
+	{% for i in session.get_list() %}
+	<li>
+<div class="ml-4 mt-4 card w-75">
+  <div class="card-body">
+    <h5 class="card-title">{{i}} </h5>
+    <p class="card-text"> Reservation for : {{session.get_quantity(i) }} people</p><form action="{{ url_for('manage_session')}}" method="POST"><button type="submit" name="button" value="delete" class="btn btn-danger float-right">Delete</button>
+    <input style="display:none; height:0px;" type="text" name= "name", value="{{session.name}}">
+    <input style="display:none; height:0px;" type="text" name= "number", value="{{i}}">
+    </form>
+
+  </div>
+</div></li>
+	{% endfor %}
+</ul>
+
+
+{% endblock content %}
+
+

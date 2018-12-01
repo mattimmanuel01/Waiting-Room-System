@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+ <div class="container ml-4">
+  <div class=" w-25 p-3" >
+    <form class="form-signin" action="{{ url_for('create_session')}}" method = "POST">
+
+      <h1 style="width:500px;" class="h3 mb-3 font-weight-normal">Create your own waiting room</h1>
+      <label for="inputEmail" class="sr-only">Session Name</label>
+      <input class="mb-3 form-control" placeholder="name" name="name">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+       <div class="checkbox mb-3">
+     
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Create!</button>
+
+    </form>
+    {% if error == True %}
+  </div>
+</div>
+    <div class="ml-4 w-50 p-3 alert alert-danger">
+    <strong>Error!</strong> Session with this name has already existed.
+    </div>
+
+{% endif %}
+
+
+{% endblock content %}
+
